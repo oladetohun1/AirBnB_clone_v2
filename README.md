@@ -1,8 +1,16 @@
-<center> <h1>HBNB - The Console</h1> </center>
+<center><h1 style="font-size: 45px;margin-bottom:0px">0x02. AirBnB Clone - MySQL</h1></center>
+<center><div d-flex flex-wrap gap-3 my-2">
+<span style="font-size: 14px;background-color: #db3e3e;display: inline;font-weight: 700;border-radius: 0.25em;padding: 0.2em 0.6em 0.3em;color: #fff">Group project</span>
+<span style="font-size: 14px;background-color: #db3e3e;display: inline;font-weight: 700;border-radius: 0.25em;padding: 0.2em 0.6em 0.3em;color: #fff">Python</span>
+<span style="font-size: 14px;background-color: #db3e3e;display: inline;font-weight: 700;border-radius: 0.25em;padding: 0.2em 0.6em 0.3em;color: #fff">OOP</span>
+<span style="font-size: 14px;background-color: #db3e3e;display: inline;font-weight: 700;border-radius: 0.25em;padding: 0.2em 0.6em 0.3em;color: #fff">Back-end</span>
+<span style="font-size: 14px;background-color: #db3e3e;display: inline;font-weight: 700;border-radius: 0.25em;padding: 0.2em 0.6em 0.3em;color: #fff">SQL</span>
+<span style="font-size: 14px;background-color: #db3e3e;display: inline;font-weight: 700;border-radius: 0.25em;padding: 0.2em 0.6em 0.3em;color: #fff">MySQL</span>
+<span style="font-size: 14px;background-color: #db3e3e;display: inline;font-weight: 700;border-radius: 0.25em;padding: 0.2em 0.6em 0.3em;color: #fff">ORM</span>
+<span style="font-size: 14px;background-color: #db3e3e;display: inline;font-weight: 700;border-radius: 0.25em;padding: 0.2em 0.6em 0.3em;color: #fff">SQLAlchemy</span>
+</div></center>
 
-This repository contains the initial stage of a student project to build a clone of the AirBnB website. This stage implements a backend interface, or console, to manage program data. Console commands allow the user to create, update, and destroy objects, as well as manage file storage. Using a system of JSON serialization/deserialization, storage is persistent between sessions.
 
----
 
 <center><h3>Repository Contents by Project Task</h3> </center>
 
