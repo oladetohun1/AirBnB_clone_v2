@@ -1,3 +1,4 @@
+<html>
 <center><h1 style="font-size: 45px;margin-bottom:0px">0x02. AirBnB Clone - MySQL</h1></center>
 <center><div d-flex flex-wrap gap-3 my-2">
 <span style="font-size: 14px;background-color: #db3e3e;display: inline;font-weight: 700;border-radius: 0.25em;padding: 0.2em 0.6em 0.3em;color: #fff">Group project</span>
@@ -9,7 +10,7 @@
 <span style="font-size: 14px;background-color: #db3e3e;display: inline;font-weight: 700;border-radius: 0.25em;padding: 0.2em 0.6em 0.3em;color: #fff">ORM</span>
 <span style="font-size: 14px;background-color: #db3e3e;display: inline;font-weight: 700;border-radius: 0.25em;padding: 0.2em 0.6em 0.3em;color: #fff">SQLAlchemy</span>
 </div></center>
-
+</html>
 
 
 <center><h3>Repository Contents by Project Task</h3> </center>
