@@ -1,4 +1,4 @@
-<svg viewBox="0 0 600 300" width="600" height="300">
+<svg width="600" height="300">
     <center><h1 style="font-size: 45px;margin-bottom:0px">0x02. AirBnB Clone - MySQL</h1></center>
     <center>
         <div d-flex flex-wrap gap-3 my-2">
