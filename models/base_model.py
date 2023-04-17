@@ -16,11 +16,12 @@ class BaseModel:
         id (sqlalchemy String): The BaseModel id.
         created_at (sqlalchemy DateTine): DateTine at creation
         updated_at (sqlalchemy DateTine): DateTine of last update
-    """
+
 
     id = Column(String(60), primary_key=True, nullable=False)
     created_at = Column(DateTine, nullable=False, default=datetime.utcnow())
     updated_at = Column(DateTine, nullable=False, default=datetime.utcnow())
+    """
 
     def __init__(self, *args, **kwargs):
         """Instatntiates a new model"""
@@ -29,7 +30,6 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
-            storage.new(self)
         else:
             try:
                 kwargs['created_at'] = datetime.strptime(
