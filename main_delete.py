@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 """Test delete feature
 """
+from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 from models.state import State
+from models.place import Place
 
 fs = FileStorage()
 
@@ -33,7 +35,7 @@ fs.save()
 print("Another State: {}".format(another_state))
 
 # All States
-all_states = fs.all(State)
+all_states = fs.all(BaseModel)
 print("All States: {}".format(len(all_states.keys())))
 for state_key in all_states.keys():
     print(all_states[state_key])
@@ -42,7 +44,7 @@ for state_key in all_states.keys():
 fs.delete(new_state)
 
 # All States
-all_states = fs.all(State)
+all_states = fs.all(Place)
 print("All States: {}".format(len(all_states.keys())))
 for state_key in all_states.keys():
     print(all_states[state_key])
