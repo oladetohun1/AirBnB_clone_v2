@@ -6,7 +6,7 @@ from os import getenv
 if (getenv("HBNB_TYPE_STORAGE") == "db"):
     from .engine.db_storage import DBStorage
     storage = DBStorage()
-else:
+elif (getenv("HBNB_TYPE_STORAGE") == "FileStorage"):
     from .engine.file_storage import FileStorage
     storage = FileStorage()
 
