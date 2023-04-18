@@ -11,6 +11,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
 from os import getenv
 
+
 class DBStorage:
     """
     Represents a new engine/storage MYSQL
@@ -30,6 +31,7 @@ class DBStorage:
 
     __engine = None
     __session = None
+
     def __init__(self):
         """Initialize instance"""
         self.__engine = create_engine("mysql+mysqldb://{}:{}@{}/{}".
@@ -76,9 +78,3 @@ class DBStorage:
                                        expire_on_commit=False)
         Session = scoped_session(session_factory)
         self.__session = Session()
-
-
-
-
-
-
