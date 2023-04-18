@@ -161,13 +161,11 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, args):
         """ Method to show an individual object """
-        new = args.partition(" ")
+        new = args.split(" ")
         c_name = new[0]
-        c_id = new[2]
+        c_id = new[1]
 
         # guard against trailing args
-        if c_id and ' ' in c_id:
-            c_id = c_id.partition(' ')[0]
 
         if not c_name:
             print("** class name missing **")
