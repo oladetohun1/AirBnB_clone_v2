@@ -232,10 +232,10 @@ class HBNBCommand(cmd.Cmd):
                 return
             c_name = eval(c_name)
             o = storage.all(c_name)
-            print([o[k].__str__() for k in o])
+            print([str(o[k]) for k in o])
         else:
             o = storage.all()
-            print([o[k].__str__() for k in o])
+            print([str(o[k]) for k in o])
 
     def help_all(self):
         """ Help information for the all command """
