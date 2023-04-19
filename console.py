@@ -162,26 +162,27 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, args):
         """ Method to show an individual object """
         new = args.split(" ")
-        c_name = new[0]
-        c_id = new[1]
 
         # guard against trailing args
 
-        if not c_name:
+        if len(new) < 1:
             print("** class name missing **")
             return
-
+        c_name = new[0]
         if c_name not in HBNBCommand.classes:
             print("** class doesn't exist **")
             return
 
-        if not c_id:
+        if len(new) < 2:
             print("** instance id missing **")
             return
 
+        c_id = new[1]
+        c_name = new[0]
         key = c_name + "." + c_id
+        c_name = eval(c_name)
         try:
-            print(storage.all()[key])
+            print(storage.all(c_name)[key])
         except KeyError:
             print("** no instance found **")
 
@@ -223,19 +224,18 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, args):
         """ Shows all objects, or all objects of a class"""
-        print_list = []
-
-        if args:
-            args = args.split(' ')[0]  # remove possible trailing args
-            if args not in HBNBCommand.classes:
+        new = args.split(" ")
+        c_name = new[0]
+        if c_name:
+            if c_name not in HBNBCommand.classes:
                 print("** class doesn't exist **")
                 return
-            args = eval(args)
-            print_list = storage.all(args)
+            c_name = eval(c_name)
+            o = storage.all(c_name)
+            print([o[k].__str__() for k in o])
         else:
-            print_list = storage.all()
-
-        print(print_list)
+            o = storage.all()
+            print([o[k].__str__() for k in o])
 
     def help_all(self):
         """ Help information for the all command """

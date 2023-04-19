@@ -9,6 +9,7 @@ from models.amenity import Amenity
 from models.review import Review
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
+from sqlalchemy.orm import relationship
 from os import getenv
 
 
@@ -48,11 +49,9 @@ class DBStorage:
         """Queries the database session for all objects related to cls"""
         if (cls is None):
             objs = self.__session.query(User).all()
-            objs.extended(self.__session).query(State).all()
-            objs.extended(self.__session).query(City).all()
-            objs.extended(self.__session).query(Amenity).all()
-            objs.extended(self.__session).query(Place).all()
-            objs.extended(self.__session).query(Review).all()
+            objs.extend(self.__session.query(State).all())
+            objs.extend(self.__session.query(City).all())
+            objs.extend(self.__session.query(Amenity).all())
         else:
             objs = self.__session.query(cls).all()
 
