@@ -18,9 +18,6 @@ class State(BaseModel, Base):
     if (os.environ.get("HBNB_TYPE_STORAGE") != "db"):
         @property
         def cities(self):
-            """Get a list of all cities related to State object"""
-            cities_list = []
-            for city in list(models.storage.all(City).values()):
-                if city.state_id == self.id:
-                    cities_list.append(city)
-            return cities_list
+            from model import storage
+            return [city for city in storage.all('City').values()
+                    if city.state_id == self.id]
