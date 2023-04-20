@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """ Place Module for HBNB project """
 from os import getenv
-from models import storage
 from sqlalchemy.orm import relationship
 from models.base_model import BaseModel, Base
 from models.review import Review
@@ -29,7 +28,7 @@ class Place(BaseModel, Base):
         def reviews(self):
             """FileStorage getter attribute"""
             revlist = []
-            for review in list(storage.all(Review).values()):
+            for review in list(models.storage.all(Review).values()):
                 if review.place_id == self.id:
                     revlist.append(review)
             return revlist
