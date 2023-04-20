@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """ Place Module for HBNB project """
 from os import getenv
-import re
 from sqlalchemy.orm import relationship
 from models.amenity import Amenity
 from models.base_model import BaseModel, Base
@@ -9,8 +8,9 @@ from models.review import Review
 from sqlalchemy import Column, Float, ForeignKey, Integer, String, Table
 
 
-association_Table = Table("place_amenity", Base.metadata,
-                          Column("places_id", String(60),
+association_table = Table("place_amenity", Base.metadata,
+                          Column("place_id",
+                                 String(60),
                                  ForeignKey("places.id"),
                                  primary_key=True,
                                  nullable=False),
@@ -36,7 +36,10 @@ class Place(BaseModel, Base):
     reviews = relationship("Review", backref="place",
                            cascade="all, delete")
     amenities = relationship("Amenity",
-                             secondary="place_amenity", viewonly=False)
+                             secondary="association_table",
+                             viewonly=False,
+                             overlaps="place_amenities")
+    amenity_ids = []
 
     if getenv("HBNB_TYPE_STORAGE") != "db":
         @property
@@ -53,10 +56,9 @@ class Place(BaseModel, Base):
             """
             Returns a list of Amenity instances based on attribute amenity_ids
             """
-            amenity_ids = []
             amelist = []
             for amenity in list(models.storage.all(Amenity).values()):
-                if amenity.place_id == self.id:
+                if amenity.id == self.amenity_ids:
                     amelist.append(amenity)
             return amelist
 
