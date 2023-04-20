@@ -51,7 +51,7 @@ class BaseModel:
     def __str__(self):
         """Returns a string representation of the instance"""
         dictcopy = self.__dict__.copy()
-        dictcopy.pop("_sa_instance_state", None)
+        #  dictcopy.pop("_sa_instance_state", None)
         return "[{}] ({}) {}".format(type(self).__name__, self.id, dictcopy)
 
     def save(self):
