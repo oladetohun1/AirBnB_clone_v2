@@ -23,7 +23,7 @@ class Place(BaseModel, Base):
     reviews = relationship("Review", backref="place",
                            cascade="all, delete")
 
-    if getenv("HBNB_TYPE_STORAGE") == "db":
+    if getenv("HBNB_TYPE_STORAGE") != "db":
         @property
         def reviews(self):
             """FileStorage getter attribute"""
