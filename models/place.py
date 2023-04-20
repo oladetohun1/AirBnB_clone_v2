@@ -37,7 +37,6 @@ class Place(BaseModel, Base):
                            cascade="all, delete")
     amenities = relationship("Amenity",
                              secondary="place_amenity", viewonly=False)
-    amenity_ids = []
 
     if getenv("HBNB_TYPE_STORAGE") != "db":
         @property
@@ -54,6 +53,7 @@ class Place(BaseModel, Base):
             """
             Returns a list of Amenity instances based on attribute amenity_ids
             """
+            amenity_ids = []
             amelist = []
             for amenity in list(models.storage.all(Amenity).values()):
                 if amenity.place_id == self.id:
