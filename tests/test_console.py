@@ -62,7 +62,7 @@ class TestConsole(unittest.TestCase):
 
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("create addwdq")
-            self.assertEqual("** class does not exist **\n", f.getvalue())
+            self.assertEqual("** class doesn't exist **\n", f.getvalue())
 
         for i in classes:
             with patch('sys.stdout', new=StringIO()) as f:
@@ -75,7 +75,7 @@ class TestConsole(unittest.TestCase):
         """Test do_show command"""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("show")
-            self.assertEqual("** class name missing **\n", f.getvalue())
+            self.assertEqual("** class doesn't exist **\n", f.getvalue())
 
 
 if __name__ == '__main__':
