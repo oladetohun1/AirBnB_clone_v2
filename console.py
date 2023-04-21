@@ -33,7 +33,10 @@ class HBNBCommand(cmd.Cmd):
 
     def do_quit(self, command):
         """ Method to exit the HBNB console"""
-        exit()
+        try:
+            exit()
+        except SystemExit:
+            return
 
     def help_quit(self):
         """ Prints the help documentation for quit  """
@@ -57,12 +60,12 @@ class HBNBCommand(cmd.Cmd):
 
         totargs = args.split()
         params = {}
-        classname = totargs[0]
 
         if not args:
             print("** class name missing **")
             return
-        elif classname not in HBNBCommand.classes:
+        classname = totargs[0]
+        if classname not in HBNBCommand.classes:
             print("** class doesn't exist **")
             return
 
