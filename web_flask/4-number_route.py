@@ -2,7 +2,6 @@
 """Python script that starts a F;ask Web Application"""
 
 from flask import Flask
-from jinja2.utils import F
 
 app = Flask(__name__)
 
