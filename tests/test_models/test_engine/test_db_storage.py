@@ -16,13 +16,21 @@ from models.review import Review
 from models.engine.db_storage import DBStorage
 
 
-@unittest.skipIf(getenv("HBNB_TYPE_STORAGE") != 'db', 'NO DB')
+# @unittest.skipIf(getenv("HBNB_TYPE_STORAGE") != 'db', 'NO DB')
 class TestDBStorage(unittest.TestCase):
     '''this will test the DBStorage'''
 
     @classmethod
     def setUpClass(self):
         """set up for test"""
+
+        os.environ["HBNB_MYSQL_USER"] = "hbnd_test"
+        os.environ["HBNB_MYSQL_PWD"] = "hbnb_test_pwd"
+        os.environ["HBNB_MYSQL_HOST"] = "localhost"
+        os.environ["HBNB_MYSQL_DB"] = "hbnb_test_db"
+        os.environ["HBNB_TYPE_STORAGE"] = "db"
+        os.environ["HBNB_ENV"] = "test"
+
         self.User = getenv("HBNB_MYSQL_USER")
         self.Passwd = getenv("HBNB_MYSQL_PWD")
         self.Db = getenv("HBNB_MYSQL_DB")
@@ -30,6 +38,7 @@ class TestDBStorage(unittest.TestCase):
         self.db = MySQLdb.connect(host=self.Host, user=self.User,
                                   passwd=self.Passwd, db=self.Db,
                                   charset="utf8")
+
         self.query = self.db.cursor()
         self.storage = DBStorage()
         self.storage.reload()
@@ -39,6 +48,14 @@ class TestDBStorage(unittest.TestCase):
         """at the end of the test this will tear it down"""
         self.query.close()
         self.db.close()
+        del os.environ["HBNB_TYPE_STORAGE"]
+        del os.environ["HBNB_MYSQL_USER"]
+        del os.environ["HBNB_MYSQL_PWD"]
+        del os.environ["HBNB_MYSQL_HOST"]
+        del os.environ["HBNB_MYSQL_DB"]
+        del os.environ["HBNB_TYPE_STORAGE"]
+        del os.environ["HBNB_ENV"]
+
 
     @unittest.skipIf(getenv("HBNB_TYPE_STORAGE") != 'db', 'NO DB')
     def test_pep8_DBStorage(self):
