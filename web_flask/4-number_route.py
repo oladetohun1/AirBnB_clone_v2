@@ -31,7 +31,7 @@ def python_text(text='is cool'):
 
 
 @app.route('/number/<int:n>', strict_slashes=False)
-def number(n):
+def show_number(n):
     return '{} is a number'.format(n)
 
 
