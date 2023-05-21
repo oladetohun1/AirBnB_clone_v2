@@ -48,7 +48,7 @@ def ren_even_odd_template(n):
         oddeven = 'odd'
 
     return render_template('6-number_odd_or_even.html', number=n,
-                           oddeven=oddeven)
+                           evenodd=oddeven)
 
 
 if __name__ == '__main__':
