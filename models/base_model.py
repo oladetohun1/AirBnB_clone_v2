@@ -19,7 +19,7 @@ class BaseModel:
         updated_at (sqlalchemy DateTine): DateTine of last update
     """
 
-    id = Column(String(60), primary_key=True, nullable=False)
+    id = Column(String(60), primary_key=True, unique=True, nullable=False)
     created_at = Column(DateTime, nullable=False, default=datetime.utcnow())
     updated_at = Column(DateTime, nullable=False, default=datetime.utcnow())
 
