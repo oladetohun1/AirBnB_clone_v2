@@ -35,7 +35,7 @@ class HBNBCommand(cmd.Cmd):
         """ Method to exit the HBNB console"""
         try:
             exit()
-        except SystemExit:
+        except Exception:
             return
 
     def help_quit(self):
