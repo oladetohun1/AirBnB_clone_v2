@@ -11,17 +11,17 @@ from models.city import City
 app = Flask(__name__)
 
 
+@app.teardown_appcontext
+def teardown_db(exception):
+    storage.close()
+
+
 @app.route('/cities_by_states', strict_slashes=False)
 def cities_by_state():
     states = storage.all(State).values()
 
     sorted_states = sorted(states, key=lambda state: state.name)
     return render_template('8-cities_by_states.html', states=sorted_states)
-
-
-@app.teardown_appcontext
-def teardown_db():
-    storage.close()
 
 
 if __name__ == '__main__':
