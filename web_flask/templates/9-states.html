@@ -9,9 +9,9 @@
 		{% elif id == None %}
 		<H1>States</H1>
 		<UL>
-		{% for state in states %}
+			{% for state in states %}
 			<LI>{{ state.id }}: <B>{{ state.name }}</B></LI>
-		{% endfor %}
+			{% endfor %}
 		</UL>
 		{% else %}
 		{% for state in states %}
