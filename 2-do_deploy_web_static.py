@@ -2,7 +2,6 @@
 """
 Fabric script based on the file 1-pack_web_staic.py that distributes
 archive to web servers
-
 162560-web-01 100.24.205.74
 162560-web-02 34.204.101.28
 """
