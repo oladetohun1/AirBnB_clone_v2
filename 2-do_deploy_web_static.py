@@ -8,7 +8,7 @@ archive to web servers
 
 from fabric.api import put, run, env
 from os.path import exists
-env.hosts = ['100.24.205.74', '34.204.101.28']
+env.hosts = ['3.84.237.43', '100.25.180.143']
 
 
 def do_peloy(archive_path):

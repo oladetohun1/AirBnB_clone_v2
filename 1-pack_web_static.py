@@ -20,3 +20,7 @@ def do_pack():
         return filename
     except Exception:
         return None
+
+
+if __name__ == "__main__":
+    do_pack()
