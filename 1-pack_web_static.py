@@ -8,7 +8,10 @@ from datetime import datetime
 from fabric.api import local
 from os.path import isdir
 
+from fabric.decorators import runs_once
 
+
+@runs_once
 def do_pack():
     """Generates .tgz archive"""
     try:
@@ -20,7 +23,3 @@ def do_pack():
         return filename
     except Exception:
         return None
-
-
-if __name__ == "__main__":
-    do_pack()
